@@ -1,0 +1,93 @@
+/*Reverse a given Array
+Problem Statement: You are given an array. The task is to reverse the array and print it. 
+
+Examples:
+
+Example 1:
+Input: N = 5, arr[] = {5,4,3,2,1}
+Output: {1,2,3,4,5}
+Explanation: Since the order of elements gets reversed the first element will occupy the fifth position, the second element occupies the fourth position and so on.
+
+Example 2:
+Input: N=6 arr[] = {10,20,30,40}
+Output: {40,30,20,10}
+Explanation: Since the order of elements gets reversed the first element will occupy the fifth position, the second element occupies the fourth position and so on.
+Approach:
+swap first element with last element and continue this till n-i
+*/
+//--------------- C code -------------//
+#include <stdio.h>
+#include <stdlib.h>
+
+void arrayreverse(int a[],int n)
+{
+    for(int i=0;i<n-i+1;i++)
+    {
+       int  temp=a[i];
+        a[i]=a[n-i-1];
+        a[n-i-1]=temp;
+    }
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    printf("Reversed_array:");
+    arrayreverse(a,n);
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",a[i]);
+    }
+    return 0;
+}
+
+//-----------cpp-------------//
+#include <stdio.h>
+#include <stdlib.h>
+#include <bits/stdc++.h>
+using namespace std;
+void arrayreverse(int a[],int n)
+{
+    for(int i=0;i<n-i+1;i++)
+    {
+       int  temp=a[i];
+        a[i]=a[n-i-1];
+        a[n-i-1]=temp;
+    }
+}
+/* or use this built in reverse() in cpp 
+
+void arrayreverse(int arr[],int n)
+{
+    reverse(arr,arr+n);
+}
+*/
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    printf("Reversed_array:");
+    arrayreverse(a,n);
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",a[i]);
+    }
+
+    return 0;
+}
+
+//----------python--------------//
+arr=list(map(int,input().split(" ")))
+arr.sort(reverse=True)    # or use arr.reverse() built in function
+print(arr)
