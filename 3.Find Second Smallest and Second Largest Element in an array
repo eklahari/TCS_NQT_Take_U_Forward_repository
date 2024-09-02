@@ -1,0 +1,163 @@
+/*Find Second Smallest and Second Largest Element in an array
+Example 1:
+Input:
+ [1,2,4,7,7,5]
+Output:
+ Second Smallest : 2
+	Second Largest : 5
+Explanation:
+ The elements are as follows 1,2,3,5,7,7 and hence second largest of these is 5 and second smallest is 2
+
+Example 2:
+Input:
+ [1]
+Output:
+ Second Smallest : -1
+	Second Largest : -1
+Explanation:
+ Since there is only one element in the array, it is the largest and smallest element present in the array. There is no second largest or second smallest element present.
+
+Approach:
+We would require four variables: small,second_small, large, and second_large. Variable small and second_small are initialized to INT_MAX while large and second_large are initialized to INT_MIN.
+
+Second Smallest Algo:
+
+If the current element is smaller than ‘small’, then we update second_small and small variables
+Else if the current element is smaller than ‘second_small’ then we update the variable ‘second_small’
+Once we traverse the entire array, we would find the second smallest element in the variable second_small.
+Here’s a quick demonstration of the same.
+Second Largest Algo:
+
+If the current element is larger than ‘large’ then update second_large and large variables
+Else if the current element is larger than ‘second_large’ then we update the variable second_large.
+Once we traverse the entire array, we would find the second largest element in the variable second_large.
+Here’s a quick demonstration of the same.
+*/
+
+//--------------C_code----------------//
+#include <stdio.h>
+#include <stdlib.h>
+int second_smallest(int a[],int n)
+{
+    int small=9999999;
+    int s_small=9999999;//second_smallest;
+    if(n<2)
+    {
+        return -1;
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]<small)
+        {
+            s_small=small;
+            small=a[i];
+        }
+        else if(a[i]<s_small && a[i]!=small)
+        {
+            s_small=a[i];
+        }
+    }
+    return s_small;
+}
+
+int second_largest(int a[],int n)
+{
+    int large=-9999999;
+    int s_large=-9999999;
+    if (n<2)
+      return -1;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]>large)
+        {
+            s_large=large;
+            large=a[i];
+        }
+        else if(a[i]>s_large&&a[i]!=large)
+        {
+            s_large=a[i];
+        }
+    }
+    return s_large;
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    printf("second smallest element=%d",second_smallest(a,n));
+    printf("\nsecond largest element=%d",second_largest(a,n));
+    return 0;
+}
+
+//------------cpp----------------//
+#include <stdio.h>
+#include <bits/stdc++.h>
+using namespace std;
+int second_smallest(int a[],int n)
+{
+    int small=9999999;
+    int s_small=9999999;//second_smallest;
+    if(n<2)
+    {
+        return -1;
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]<small)
+        {
+            s_small=small;
+            small=a[i];
+        }
+        else if(a[i]<s_small && a[i]!=small)
+        {
+            s_small=a[i];
+        }
+    }
+    return s_small;
+}
+
+int second_largest(int a[],int n)
+{
+    int large=-9999999;
+    int s_large=-9999999;
+    if (n<2)
+      return -1;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]>large)
+        {
+            s_large=large;
+            large=a[i];
+        }
+        else if(a[i]>s_large&&a[i]!=large)
+        {
+            s_large=a[i];
+        }
+    }
+    return s_large;
+}
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    cout<<"second smallest element="<<second_smallest(a,n);
+    cout<<"\nsecond largest element="<<second_largest(a,n);
+    return 0;
+}
+//--------python-----------//
+arr=list(map(int,input().split(" ")))
+x=set(arr)
+x=list(x)
+x.sort()
+print("second largest element=",x[-2])
+print("second smallest element=",x[1])
