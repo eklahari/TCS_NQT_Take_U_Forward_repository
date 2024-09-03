@@ -1,0 +1,62 @@
+/*Count frequency of each element in the array
+Problem statement: Given an array, we have found the number of occurrences of each element in the array.
+Examples:
+Example 1:
+Input: arr[] = {10,5,10,15,10,5};
+Output: 10  3
+	 5  2
+        15  1
+Explanation: 10 occurs 3 times in the array
+	      5 occurs 2 times in the array
+              15 occurs 1 time in the array
+
+Example2: 
+Input: arr[] = {2,2,3,4,4,2};
+Output: 2  3
+	3  1
+        4  2
+Explanation: 2 occurs 3 times in the array
+	     3 occurs 1 time in the array
+             4 occurs 2 time in the array
+*/
+//------------C code------------//
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int n,count;
+    scanf("%d",&n);
+    int a[n],visited[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+        visited[i]=0;
+    }
+    for(int i=0;i<n;i++)
+    {
+        count=1;
+        if(visited[i]!=1)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(a[i]==a[j])
+                {
+                    count++;
+                    visited[j]=1;
+                }
+            }
+            printf("%d:%d\n",a[i],count);
+        }
+    }
+    return 0;
+}
+
+//-----------python code-----------//
+arr=list(map(int,input().split(" ")))
+d={}
+for i in arr:
+    if i in d:
+        d[i]+=1
+    else:
+        d[i]=1
+print(d)
