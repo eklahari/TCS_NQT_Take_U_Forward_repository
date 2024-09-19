@@ -15,6 +15,38 @@ Explanation: Since the order of elements gets reversed the first element will oc
 Approach:
 swap first element with last element and continue this till n-i
 */
+//----------------Java Code-----------//
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    public static int[] reverse(int[] a,int n)
+    {
+        for(int i=0;i<n-i-1;i++)
+        {
+            int temp=a[i];
+            a[i]=a[n-i-1];
+            a[n-i-1]=temp;
+        }
+        return a;
+    }
+    
+	public static void main (String[] args) throws java.lang.Exception
+	{
+
+		int n;
+		n=5;
+		int a[] ={1,2,3,4,5};
+		int[] reverse_array=reverse(a,n);
+		for(int i=0;i<n;i++)
+		{
+		    System.out.print(a[i]+" ");
+		}
+
+	}
+}
 //--------------- C code -------------//
 #include <stdio.h>
 #include <stdlib.h>
