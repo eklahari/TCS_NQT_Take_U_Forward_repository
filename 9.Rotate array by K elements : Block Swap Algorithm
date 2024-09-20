@@ -1,0 +1,93 @@
+Problem Statement: Given an array of n size, rotate the array by k elements using the Block Swap Algorithm.
+
+Examples:
+Example 1:
+Input: N = 5, array[] = {1,2,3,4,5} K=2
+Output: {3,4,5,1,2}
+Explanation: Rotate the array to right by 2 elements.
+
+Example 2:
+Input: N = 7, array[] = {1,2,3,4,5,6,7} K=3
+Output: {4,5,6,7,1,2,3}
+Explanation: Rotate the array to right by 3 elements.
+
+//--------------------java-------------------//
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class arrayoperations
+{
+    private static void rotatebyK(int a[],int n,int k)
+    {
+        int b[]=new int[n];
+        int j=0;
+        k=k%n;
+        for(int i=k;i<n;i++)
+        {
+            b[j]=a[i];
+            j++;
+        }
+        for(int i=0;i<k;i++)
+        {
+            b[j]=a[i];
+            j++;
+        }
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(b[i]+" ");
+        }
+        
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int a[]={1,2,3,4,5,6};
+		Scanner sc=new Scanner(System.in);
+		int k=sc.nextInt();
+		rotatebyK(a,a.length,k);
+
+	}
+}
+
+//----------------------c_code------------------//
+#include <stdio.h>
+void rotatebyK(int a[],int n,int k)
+{
+    int b[n];
+    int j=0;
+    k=k%n;
+    for(int i=k;i<n;i++)
+    {
+        b[j]=a[i];
+        j++;
+    }
+    for(int i=0;i<k;i++)
+    {
+        b[j]=a[i];
+        j++;
+    }
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",b[i]);
+    }
+}
+
+int main() {
+	int n=6;
+	int a[]={1,2,3,4,5,6};
+	int k;
+	scanf("%d",&k);
+	rotatebyK(a,n,k);
+
+}
+//-----------------python--------------//
+l=[1,2,3,4,5,6]
+k=int(input())
+s=[]
+k=k%len(l)
+for i in range(k,len(l)):
+      s.append(l[i])
+for i in range(0,k):
+      s.append(l[i])
+print(*s)
+
