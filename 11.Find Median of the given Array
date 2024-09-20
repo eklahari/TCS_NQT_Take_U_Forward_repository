@@ -1,0 +1,45 @@
+Find Median of the given Array
+
+Problem Statement: Given an unsorted array, find the median of the given array.
+
+Examples:
+Example 1:
+Input: [2,4,1,3,5]
+Output: 3
+
+Example 2:
+Input: [2,5,1,7]
+Output: 3.5
+
+//------------------java-----------------//
+import java.io.*;
+import java.util.Arrays;
+
+class arrayoperations
+{
+    private static double median(int[] a,int n)
+    {
+        Arrays.sort(a);
+        for(int i=0;i<n;i++)
+        {
+            System.out.println(a[i]+" ");
+        }
+        if(n%2!=0)
+        {
+            return a[n/2];
+        }
+        else{
+            int id1=(n/2)-1;
+            int id2=n/2;
+            return (a[id1] + a[id2]) / 2.0;
+            //return ((double)(a[id1] + a[id2]) / 2);
+        }
+        
+    }
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int a[]={1,6,2,4,3,5};
+		System.out.println(median(a,a.length));
+
+	}
+}
